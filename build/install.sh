@@ -24,7 +24,7 @@ python3 -c "from launch import prepare_environment; prepare_environment()" --ski
 git clone https://github.com/Mikubill/sd-webui-controlnet.git extensions/sd-webui-controlnet
 git clone --depth=1 https://github.com/deforum-art/sd-webui-deforum.git extensions/deforum
 git clone --depth=1 https://github.com/ashleykleynhans/a1111-sd-webui-locon.git extensions/a1111-sd-webui-locon
-git clone --depth=1 https://github.com/Gourieff/sd-webui-reactor.git extensions/sd-webui-reactor
+git clone --depth=1 https://codeberg.org/Gourieff/sd-webui-reactor.git extensions/sd-webui-reactor
 git clone --depth=1 https://github.com/zanllp/sd-webui-infinite-image-browsing.git extensions/infinite-image-browsing
 git clone --depth=1 https://github.com/Uminosachi/sd-webui-inpaint-anything.git extensions/inpaint-anything
 git clone --depth=1 https://github.com/Bing-su/adetailer.git extensions/adetailer

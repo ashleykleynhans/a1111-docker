@@ -10,10 +10,10 @@
 ## Installs
 
 * Ubuntu 22.04 LTS
-* CUDA 12.1
-* Python 3.10.12
-* Torch 2.4.0
-* xformers 0.0.27.post2
+* CUDA 12.4
+* Python 3.12.9
+* Torch 2.6.0
+* xformers 0.0.29.post3
 * [Jupyter Lab](https://github.com/jupyterlab/jupyterlab)
 * [code-server](https://github.com/coder/code-server)
 * [Automatic1111 Stable Diffusion Web UI](

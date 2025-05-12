@@ -30,7 +30,8 @@ save_template_json() {
     cat << EOF > ${TEMPLATE_VERSION_FILE}
 {
     "template_name": "${TEMPLATE_NAME}",
-    "template_version": "${TEMPLATE_VERSION}"
+    "template_version": "${TEMPLATE_VERSION}",
+    "template_last_compatible_version": "${TEMPLATE_LAST_COMPATIBLE_VERSION}"
 }
 EOF
 }
@@ -151,10 +152,10 @@ if [ "$(printf '%s\n' "$EXISTING_VERSION" "$TEMPLATE_VERSION" | sort -V | head -
         # Create logs directory
         mkdir -p /workspace/logs
     else
-        echo "Existing version is the same as the template version, no syncing required."
+        echo "SYNC: Existing version is the same as the template version, no syncing required."
     fi
 else
-    echo "Existing version is newer than the template version, not syncing!"
+    echo "SYNC: Existing version is newer than the template version, not syncing!"
 fi
 
 # Add VENV_PATH to webui-user.sh
