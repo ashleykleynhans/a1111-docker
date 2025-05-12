@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
+# Install Python distutils
+apt update
+apt -y install python3-distutils
+
 # Clone the git repo of the Stable Diffusion Web UI by Automatic1111
 # and set version
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
@@ -10,6 +14,12 @@ git checkout tags/${WEBUI_VERSION}
 # Create and activate venv
 python3 -m venv --system-site-packages /venv
 source /venv/bin/activate
+
+# Upgrade pip
+pip install --upgrade pip
+
+# Install setuptools and wheel
+pip3 install --upgrade setuptools wheel
 
 # Install torch and xformers
 pip3 install --no-cache-dir torch==${TORCH_VERSION} torchvision torchaudio --index-url ${INDEX_URL}
