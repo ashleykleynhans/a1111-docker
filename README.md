@@ -21,7 +21,7 @@
 * [ControlNet extension](
   https://github.com/Mikubill/sd-webui-controlnet) v1.1.455
 * [After Detailer extension](
-  https://github.com/Bing-su/adetailer) v24.6.0
+  https://github.com/Bing-su/adetailer) v25.3.0
 * [ReActor extension](https://github.com/Gourieff/sd-webui-reactor)
 * [Deforum extension](https://github.com/deforum-art/sd-webui-deforum)
 * [Inpaint Anything extension](https://github.com/Uminosachi/sd-webui-inpaint-anything)
@@ -46,6 +46,15 @@ This image is designed to work on [RunPod](https://runpod.io?ref=2xxro4sy).
 You can use my custom [RunPod template](
 https://runpod.io/console/gpu-cloud?template=ts8ze6urzh&ref=2xxro4sy)
 to launch it on RunPod.
+
+## Downloading models
+
+```bash
+cd /workspace/stable-diffusion-webui/models/Stable-diffusion
+wget https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors
+wget https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors
+wget https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/sdxl_vae.safetensors
+```
 
 ## Building the Docker image
 
