@@ -88,7 +88,7 @@ deactivate
 # Add inswapper model for the ReActor extension
 mkdir -p /stable-diffusion-webui/models/insightface
 cd /stable-diffusion-webui/models/insightface
-wget -O inswapper_128.onnx "https://huggingface.co/ashleykleynhans/inswapper/resolve/main/inswapper_128.onnx?download=true""
+wget -O inswapper_128.onnx "https://huggingface.co/ashleykleynhans/inswapper/resolve/main/inswapper_128.onnx?download=true"
 
 # Configure ReActor to use the GPU instead of the CPU
 echo "CUDA" > /stable-diffusion-webui/extensions/sd-webui-reactor/last_device.txt
