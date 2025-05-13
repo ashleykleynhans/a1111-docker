@@ -48,6 +48,8 @@ cd /stable-diffusion-webui/extensions/adetailer
 python3 -m install
 cd /stable-diffusion-webui/extensions/sd_civitai_extension
 pip3 install -r requirements.txt
+
+# Install dynamic thresholding extension
 cd /stable-diffusion-webui/extensions/sd-dynamic-thresholding
 sed -i '/license = { file = "LICENSE.txt" }/d' pyproject.toml
 cat >> pyproject.toml << 'EOF'
@@ -56,6 +58,8 @@ cat >> pyproject.toml << 'EOF'
 py-modules = ["__init__"]
 EOF
 pip3 install .
+
+# Install inpaint anything extension
 cd /stable-diffusion-webui/extensions/inpaint-anything
 python3 -m install
 
