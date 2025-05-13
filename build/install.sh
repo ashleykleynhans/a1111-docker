@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-# Install Python distutils
-apt update
-apt -y install python3-distutils
-
 # Clone the git repo of the Stable Diffusion Web UI by Automatic1111
 # and set version
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
@@ -17,9 +13,6 @@ source /venv/bin/activate
 
 # Upgrade pip
 pip install --upgrade pip
-
-# Install setuptools and wheel
-pip3 install --upgrade setuptools wheel
 
 # Install torch and xformers
 pip3 install --no-cache-dir torch==${TORCH_VERSION} torchvision torchaudio --index-url ${INDEX_URL}
@@ -56,6 +49,12 @@ python3 -m install
 cd /stable-diffusion-webui/extensions/sd_civitai_extension
 pip3 install -r requirements.txt
 cd /stable-diffusion-webui/extensions/sd-dynamic-thresholding
+sed -i '/license = { file = "LICENSE.txt" }/d' pyproject.toml
+cat >> pyproject.toml << 'EOF'
+
+[tool.setuptools]
+py-modules = ["__init__"]
+EOF
 pip3 install .
 cd /stable-diffusion-webui/extensions/inpaint-anything
 python3 -m install
