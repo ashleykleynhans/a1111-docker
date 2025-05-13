@@ -28,7 +28,6 @@
 * [Infinite Image Browsing extension](https://github.com/zanllp/sd-webui-infinite-image-browsing)
 * [CivitAI extension](https://github.com/civitai/sd_civitai_extension)
 * [CivitAI Browser+ extension](https://github.com/BlafKing/sd-civitai-browser-plus)
-* [TensorRT extension](https://github.com/NVIDIA/Stable-Diffusion-WebUI-TensorRT)
 * [Stable Diffusion Dynamic Thresholding (CFG Scale Fix) extension](https://github.com/mcmonkeyprojects/sd-dynamic-thresholding)
 * [inswapper_128.onnx](
   https://github.com/facefusion/facefusion-assets/releases/download/models/inswapper_128.onnx)

@@ -33,7 +33,6 @@ git clone --depth=1 https://github.com/Uminosachi/sd-webui-inpaint-anything.git 
 git clone --depth=1 https://github.com/Bing-su/adetailer.git extensions/adetailer
 git clone --depth=1 https://github.com/civitai/sd_civitai_extension.git extensions/sd_civitai_extension
 git clone https://github.com/BlafKing/sd-civitai-browser-plus.git extensions/sd-civitai-browser-plus
-git clone https://github.com/NVIDIA/Stable-Diffusion-WebUI-TensorRT.git extensions/Stable-Diffusion-WebUI-TensorRT
 git clone --depth=1 https://github.com/mcmonkeyprojects/sd-dynamic-thresholding extensions/sd-dynamic-thresholding
 
 # Install dependencies for various extensions
@@ -66,17 +65,6 @@ python3 -m install
 # Install dependencies for Civitai Browser+ extension
 cd /stable-diffusion-webui/extensions/sd-civitai-browser-plus
 pip3 install send2trash beautifulsoup4 ZipUnicode fake-useragent packaging pysocks
-
-# Install dependencies for TensorRT extension
-cd /stable-diffusion-webui/extensions/Stable-Diffusion-WebUI-TensorRT
-pip3 install importlib_metadata
-pip3 uninstall -y tensorrt
-pip3 install --no-cache-dir nvidia-cudnn-cu11==8.9.4.25
-pip3 install --no-cache-dir --pre --extra-index-url https://pypi.nvidia.com tensorrt==9.0.1.post11.dev4
-pip3 uninstall -y nvidia-cudnn-cu11
-pip3 install polygraphy --extra-index-url https://pypi.ngc.nvidia.com
-pip3 install onnx-graphsurgeon --extra-index-url https://pypi.ngc.nvidia.com
-pip3 install optimum
 
 # Install dependencies for ControlNet extension last so other extensions don't interfere with it
 cd /stable-diffusion-webui/extensions/sd-webui-controlnet
