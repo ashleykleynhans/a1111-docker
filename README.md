@@ -136,11 +136,17 @@ You can obviously substitute the image name and tag with your own.
 ## Logs
 
 Stable Diffusion Web UI creates a log file, and you can tail it instead of
-killing the services to view the logs
+killing the services to view the logs.
 
 | Application             | Log file                     |
 |-------------------------|------------------------------|
 | Stable Diffusion Web UI | /workspace/logs/webui.log    |
+
+For example:
+
+```bash
+tail -f /workspace/logs/webui.log
+```
 
 ## Community and Contributing
 

@@ -23,7 +23,7 @@ variable "BASE_IMAGE_REPOSITORY" {
 }
 
 variable "BASE_IMAGE_VERSION" {
-    default = "2.4.2"
+    default = "2.4.7"
 }
 
 variable "CUDA_VERSION" {
@@ -40,7 +40,7 @@ variable "PYTHON_VERSION" {
 
 target "default" {
     dockerfile = "Dockerfile"
-    tags = ["${REGISTRY}/${REGISTRY_USER}/${APP}:${RELEASE}"]
+    tags = ["${REGISTRY}/${REGISTRY_USER}/${APP}:${RELEASE}.post1"]
     args = {
         RELEASE = "${RELEASE}"
         BASE_IMAGE = "${BASE_IMAGE_REPOSITORY}:${BASE_IMAGE_VERSION}-python${PYTHON_VERSION}-cuda${CUDA_VERSION}-torch${TORCH_VERSION}"
@@ -51,7 +51,7 @@ target "default" {
         CONTROLNET_COMMIT = "56cec5b2958edf3b1807b7e7b2b1b5186dbd2f81"
         CIVITAI_BROWSER_PLUS_VERSION = "v3.6.0"
         APP_MANAGER_VERSION = "1.2.2"
-        CIVITAI_DOWNLOADER_VERSION = "2.1.0"
+        CIVITAI_DOWNLOADER_VERSION = "3.0.0"
         VENV_PATH = "/workspace/venvs/a1111"
     }
     platforms = ["linux/amd64"]
