@@ -23,7 +23,7 @@ variable "BASE_IMAGE_REPOSITORY" {
 }
 
 variable "BASE_IMAGE_VERSION" {
-    default = "2.4.8"
+    default = "2.4.9"
 }
 
 variable "CUDA_VERSION" {
@@ -50,7 +50,7 @@ target "default" {
         WEBUI_VERSION = "v${RELEASE}"
         CONTROLNET_COMMIT = "56cec5b2958edf3b1807b7e7b2b1b5186dbd2f81"
         CIVITAI_BROWSER_PLUS_VERSION = "v3.6.0"
-        APP_MANAGER_VERSION = "1.2.2"
+        APP_MANAGER_VERSION = "1.3.0"
         CIVITAI_DOWNLOADER_VERSION = "3.0.0"
         VENV_PATH = "/workspace/venvs/a1111"
     }
