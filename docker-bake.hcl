@@ -14,6 +14,10 @@ variable "RELEASE" {
     default = "1.10.1"
 }
 
+variable "RELEASE_SUFFIX" {
+    default = ".post3"
+}
+
 variable "CU_VERSION" {
     default = "124"
 }
@@ -35,12 +39,12 @@ variable "TORCH_VERSION" {
 }
 
 variable "PYTHON_VERSION" {
-    default = "3.10"
+    default = "3.11"
 }
 
 target "default" {
     dockerfile = "Dockerfile"
-    tags = ["${REGISTRY}/${REGISTRY_USER}/${APP}:${RELEASE}.post2"]
+    tags = ["${REGISTRY}/${REGISTRY_USER}/${APP}:${RELEASE}${RELEASE_SUFFIX}"]
     args = {
         RELEASE = "${RELEASE}"
         BASE_IMAGE = "${BASE_IMAGE_REPOSITORY}:${BASE_IMAGE_VERSION}-python${PYTHON_VERSION}-cuda${CUDA_VERSION}-torch${TORCH_VERSION}"
