@@ -20,6 +20,8 @@ pip3 install --no-cache-dir xformers==${XFORMERS_VERSION} --index-url ${INDEX_UR
 pip3 install tensorflow[and-cuda]
 
 # Install A1111
+# Use community fork since Stability-AI made their repo private
+export STABLE_DIFFUSION_REPO="https://github.com/w-e-w/stablediffusion.git"
 pip3 install -r requirements_versions.txt
 python3 -c "from launch import prepare_environment; prepare_environment()" --skip-torch-cuda-test
 
