@@ -11,8 +11,8 @@ git checkout tags/${WEBUI_VERSION}
 python3 -m venv --system-site-packages /venv
 source /venv/bin/activate
 
-# Upgrade pip
-pip install --upgrade pip
+# Upgrade pip and setuptools
+pip install --upgrade pip setuptools wheel
 
 # Install torch and xformers
 pip3 install --no-cache-dir torch==${TORCH_VERSION} torchvision torchaudio --index-url ${INDEX_URL}
@@ -22,6 +22,16 @@ pip3 install tensorflow[and-cuda]
 # Install A1111
 # Use community fork since Stability-AI made their repo private
 export STABLE_DIFFUSION_REPO="https://github.com/w-e-w/stablediffusion.git"
+
+# Fix version pins that don't have wheels for Python 3.12
+# - Pillow 9.5.0 has no Python 3.12 wheel, use system version
+# - tokenizers <0.14 has no Python 3.12 wheel, allow newer versions
+PYTHON_VERSION=$(python3 -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
+if [ "$PYTHON_VERSION" == "3.12" ]; then
+    sed -i '/^Pillow/d' requirements_versions.txt
+    sed -i 's/tokenizers.*/tokenizers>=0.13.3/' requirements_versions.txt
+fi
+
 pip3 install -r requirements_versions.txt
 python3 -c "from launch import prepare_environment; prepare_environment()" --skip-torch-cuda-test
 
