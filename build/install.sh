@@ -44,6 +44,8 @@ cd /stable-diffusion-webui/extensions/sd-webui-reactor
 pip3 install -r requirements.txt
 pip3 install onnxruntime-gpu
 cd /stable-diffusion-webui/extensions/infinite-image-browsing
+# Remove av version constraint - av 16.x already installed by deforum and works fine
+sed -i '/^av/d' requirements.txt
 pip3 install -r requirements.txt
 cd /stable-diffusion-webui/extensions/adetailer
 python3 -m install
