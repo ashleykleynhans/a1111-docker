@@ -9,12 +9,12 @@
 
 ## Available Image Variants
 
-| Tag         | CUDA | Python  | Torch | xformers     |
-|-------------|------|---------|-------|--------------|
-| cu124-py311 | 12.4 | 3.11    | 2.6.0 | 0.0.29.post3 |
-| cu124-py312 | 12.4 | 3.12    | 2.6.0 | 0.0.29.post3 |
-| cu128-py311 | 12.8 | 3.11    | 2.9.1 | 0.0.33       |
-| cu128-py312 | 12.8 | 3.12    | 2.9.1 | 0.0.33       |
+| Docker Image Tag | CUDA | Python | Torch | xformers     | RunPod                                                                      |
+|------------------|------|--------|-------|--------------|-----------------------------------------------------------------------------|
+| cu124-py311      | 12.4 | 3.11   | 2.6.0 | 0.0.29.post3 | [Deploy](https://console.runpod.io/deploy?template=ts8ze6urzh&ref=2xxro4sy) |
+| cu124-py312      | 12.4 | 3.12   | 2.6.0 | 0.0.29.post3 |                                                                             |
+| cu128-py311      | 12.8 | 3.11   | 2.9.1 | 0.0.33       | [Deploy](https://console.runpod.io/deploy?template=deou4y116a&ref=2xxro4sy) |
+| cu128-py312      | 12.8 | 3.12   | 2.9.1 | 0.0.33       |                                                                             |
 
 ## Installs
 
