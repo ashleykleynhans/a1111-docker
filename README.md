@@ -7,17 +7,22 @@
 
 </div>
 
+## Available Image Variants
+
+| Tag | CUDA | Python | Torch | xformers |
+|-----|------|--------|-------|----------|
+| cu124-py311 | 12.4 | 3.11 | 2.6.0 | 0.0.29.post3 |
+| cu124-py312 | 12.4 | 3.12 | 2.6.0 | 0.0.29.post3 |
+| cu128-py311 | 12.8 | 3.11 | 2.9.1 | 0.0.33 |
+| cu128-py312 | 12.8 | 3.12 | 2.9.1 | 0.0.33 |
+
 ## Installs
 
 * Ubuntu 22.04 LTS
-* CUDA 12.4
-* Python 3.11.14
-* Torch 2.6.0
-* xformers 0.0.29.post3
 * [Jupyter Lab](https://github.com/jupyterlab/jupyterlab)
 * [code-server](https://github.com/coder/code-server)
 * [Automatic1111 Stable Diffusion Web UI](
-  https://github.com/AUTOMATIC1111/stable-diffusion-webui) 1.10.0
+  https://github.com/AUTOMATIC1111/stable-diffusion-webui) 1.10.1
 * [ControlNet extension](
   https://github.com/Mikubill/sd-webui-controlnet) v1.1.455
 * [After Detailer extension](
@@ -82,13 +87,29 @@ wget https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/sdxl_vae.
 # Log in to Docker Hub
 docker login
 
-# Build the image, tag the image, and push the image to Docker Hub
+# Build the default target (cu124-py311) and push to Docker Hub
 docker buildx bake -f docker-bake.hcl --push
 
-# Same as above but customize registry/user/release:
+# Build a specific target
+docker buildx bake -f docker-bake.hcl cu124-py312 --push
+
+# Build all targets
+docker buildx bake -f docker-bake.hcl --push all
+
+# Customize registry/user/release:
 REGISTRY=ghcr.io REGISTRY_USER=myuser RELEASE=my-release docker buildx \
     bake -f docker-bake.hcl --push
 ```
+
+### Available Build Targets
+
+| Target | Description |
+|--------|-------------|
+| `cu124-py311` | CUDA 12.4, Python 3.11 (default) |
+| `cu124-py312` | CUDA 12.4, Python 3.12 |
+| `cu128-py311` | CUDA 12.8, Python 3.11 |
+| `cu128-py312` | CUDA 12.8, Python 3.12 |
+| `all` | Build all targets |
 
 ## Running Locally
 
@@ -109,10 +130,10 @@ docker run -d \
   -p 8888:8888 \
   -p 2999:2999 \
   -e VENV_PATH=/workspace/venvs/a1111 \
-  ashleykza/a1111:latest
+  ashleykza/a1111:cu124-py311-1.10.1
 ```
 
-You can obviously substitute the image name and tag with your own.
+Replace `cu124-py311-1.10.1` with your preferred variant and version. See [Available Image Variants](#available-image-variants) for options.
 
 ### Ports
 
