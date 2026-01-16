@@ -9,12 +9,12 @@
 
 ## Available Image Variants
 
-| Tag | CUDA | Python | Torch | xformers |
-|-----|------|--------|-------|----------|
-| cu124-py311 | 12.4 | 3.11 | 2.6.0 | 0.0.29.post3 |
-| cu124-py312 | 12.4 | 3.12 | 2.6.0 | 0.0.29.post3 |
-| cu128-py311 | 12.8 | 3.11 | 2.9.1 | 0.0.33 |
-| cu128-py312 | 12.8 | 3.12 | 2.9.1 | 0.0.33 |
+| Tag         | CUDA | Python  | Torch | xformers     |
+|-------------|------|---------|-------|--------------|
+| cu124-py311 | 12.4 | 3.11    | 2.6.0 | 0.0.29.post3 |
+| cu124-py312 | 12.4 | 3.12    | 2.6.0 | 0.0.29.post3 |
+| cu128-py311 | 12.8 | 3.11    | 2.9.1 | 0.0.33       |
+| cu128-py312 | 12.8 | 3.12    | 2.9.1 | 0.0.33       |
 
 ## Installs
 
@@ -47,9 +47,11 @@
 ## Available on RunPod
 
 This image is designed to work on [RunPod](https://runpod.io?ref=2xxro4sy).
-You can use my custom [RunPod template](
-https://runpod.io/console/gpu-cloud?template=ts8ze6urzh&ref=2xxro4sy)
-to launch it on RunPod.
+
+| Name                                    | Docker Image                       | RunPod Template                                                             |
+|-----------------------------------------|------------------------------------|-----------------------------------------------------------------------------|
+| A1111 Stable Diffusion 1.10.1 CUDA 12.4 | ashleykza/a1111:cu124-py311-1.10.1 | [Deploy](https://console.runpod.io/deploy?template=ts8ze6urzh&ref=2xxro4sy) |
+| A1111 Stable Diffusion 1.10.1 CUDA 12.8 | ashleykza/a1111:cu128-py311-1.10.1 | [Deploy](https://console.runpod.io/deploy?template=deou4y116a&ref=2xxro4sy) |
 
 ## Downloading models
 
