@@ -25,11 +25,15 @@ export STABLE_DIFFUSION_REPO="https://github.com/w-e-w/stablediffusion.git"
 
 # Fix version pins that don't have wheels for Python 3.12
 # - Pillow 9.5.0 has no Python 3.12 wheel, use system version
+# - blendmodes==2022 requires Pillow<10, update to 2024+ which works with Pillow 10+
 # - tokenizers <0.14 has no Python 3.12 wheel, allow newer versions
+# - transformers==4.30.2 requires tokenizers<0.14, update to compatible version
 PYTHON_VERSION=$(python3 -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
 if [ "$PYTHON_VERSION" == "3.12" ]; then
     sed -i '/^Pillow/d' requirements_versions.txt
-    sed -i 's/tokenizers.*/tokenizers>=0.13.3/' requirements_versions.txt
+    sed -i 's/^blendmodes.*/blendmodes>=2024/' requirements_versions.txt
+    sed -i 's/^tokenizers.*/tokenizers>=0.14/' requirements_versions.txt
+    sed -i 's/^transformers.*/transformers>=4.36/' requirements_versions.txt
 fi
 
 pip3 install -r requirements_versions.txt
