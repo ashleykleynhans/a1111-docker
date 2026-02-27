@@ -17,7 +17,6 @@ pip install --upgrade pip setuptools wheel
 # Install torch and xformers
 pip3 install --no-cache-dir torch==${TORCH_VERSION} torchvision torchaudio --index-url ${INDEX_URL}
 pip3 install --no-cache-dir xformers==${XFORMERS_VERSION} --index-url ${INDEX_URL}
-pip3 install tensorflow[and-cuda]
 
 # Install A1111
 # Use community fork since Stability-AI made their repo private
@@ -87,6 +86,9 @@ pip3 install send2trash beautifulsoup4 ZipUnicode fake-useragent packaging pysoc
 # Install dependencies for ControlNet extension last so other extensions don't interfere with it
 cd /stable-diffusion-webui/extensions/sd-webui-controlnet
 pip3 install -r requirements.txt
+
+# Fix protobuf which could be incorrectly upgraded to an incompatible version by one of the
+# other dependencies
 pip3 install protobuf==3.20.0
 
 # Fix numpy binary incompatibility with scikit-image
