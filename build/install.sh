@@ -88,6 +88,9 @@ pip3 install send2trash beautifulsoup4 ZipUnicode fake-useragent packaging pysoc
 cd /stable-diffusion-webui/extensions/sd-webui-controlnet
 pip3 install -r requirements.txt
 pip3 install protobuf==3.20.0
+
+# Fix numpy binary incompatibility with scikit-image
+pip3 install --force-reinstall --no-cache-dir scikit-image
 pip3 cache purge
 deactivate
 
