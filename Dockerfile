@@ -15,6 +15,14 @@ ARG CIVITAI_BROWSER_PLUS_VERSION
 
 RUN /install.sh
 
+# Remove TensorFlow and related packages from base image system site-packages
+# TF is not needed for A1111 (PyTorch-based) and its numpy 1.x compiled extensions
+# crash with numpy 2.x, breaking extensions that transitively import it
+RUN PYTHON_VERSION=$(python3 -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')") && \
+    rm -rf /usr/local/lib/python${PYTHON_VERSION}/dist-packages/tensorflow* \
+           /usr/local/lib/python${PYTHON_VERSION}/dist-packages/tensorboard* \
+           /usr/local/lib/python${PYTHON_VERSION}/dist-packages/ml_dtypes*
+
 # Install Application Manager
 WORKDIR /
 ARG APP_MANAGER_VERSION
