@@ -91,6 +91,19 @@ pip3 install -r requirements.txt
 # other dependencies
 pip3 install protobuf==3.20.0
 
+# Pin mediapipe to a version that has the legacy solutions API (needed by controlnet_aux)
+# and is compatible with protobuf 3.20.x
+pip3 install mediapipe==0.10.14
+
+# Remove TensorFlow and related packages from system site-packages
+# TF is not needed for A1111 (PyTorch-based) and its numpy 1.x compiled extensions
+# crash with numpy 2.x, breaking extensions that transitively import it
+deactivate
+pip3 uninstall -y tensorflow tb-nightly 2>/dev/null || true
+rm -rf /usr/local/lib/python3.11/dist-packages/tensorflow* \
+       /usr/local/lib/python3.11/dist-packages/ml_dtypes*
+source /venv/bin/activate
+
 # Fix numpy binary incompatibility with scikit-image
 pip3 install --force-reinstall --no-cache-dir scikit-image
 pip3 cache purge
